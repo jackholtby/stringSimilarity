@@ -1,5 +1,6 @@
-# python test area
-
 import pandas
-df = pandas.read_csv('test.csv')
-print(df)
+from difflib import SequenceMatcher
+
+testTable = pandas.read_csv('test.csv', index_col='test_id')
+
+for row in testTable.itertuples():
