@@ -1,5 +1,11 @@
+# Name: String Similarity
+# Purpose: To load data from test.csv into pandas dataframe,
+# calculate similarity between description_x and description_y
+# and add this in a new column in the dataframe.
+
 import pandas
 from difflib import SequenceMatcher
+
 
 # Function to generate a similarity metric between to strings
 def similar(first, second):
