@@ -6,7 +6,6 @@
 import pandas
 from difflib import SequenceMatcher
 
-
 # Function to generate a similarity metric between to strings
 def similar(first, second):
     return SequenceMatcher(None, first, second).ratio()
