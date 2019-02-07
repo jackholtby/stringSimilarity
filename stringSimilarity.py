@@ -25,5 +25,3 @@ for row in testTable.itertuples(index=True, name='test_id'):
 # Fill the same_security column (I hope that's what you meant)
 # with the values from the list just generated.
 testTable['same_security'] = same_sec_list
-
-print(testTable)
