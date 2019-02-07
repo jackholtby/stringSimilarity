@@ -1,7 +1,8 @@
 # Name: String Similarity
+# Author: Jack Holtby
 # Purpose: To load data from test.csv into pandas dataframe,
 # calculate similarity between description_x and description_y
-# and add this in a new column in the dataframe.
+# and add this in a new column in the dataframe: same_security
 
 import pandas
 from difflib import SequenceMatcher
@@ -14,6 +15,15 @@ def similar(first, second):
 # Set test_id as the index.
 testTable = pandas.read_csv('test.csv', index_col='test_id')
 
-# Add new column (I'm hoping you meant this column)
-# which has the metric of similarity stored in it.
-testTable['same_security'] = similar(testTable['description_x'], testTable['description_y'])
+# List variable to store all the similarities
+same_sec_list = []
+
+# Store calculated similarities for each row in a list variable
+for row in testTable.itertuples(index=True, name='test_id'):
+    same_sec_list.append(similar(row[1], row[2]))
+
+# Fill the same_security column (I hope that's what you meant)
+# with the values from the list just generated.
+testTable['same_security'] = same_sec_list
+
+print(testTable)
